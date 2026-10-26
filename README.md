@@ -2,7 +2,7 @@
 
 
 
-### **A**
+### **A ĐỌC CODE**
 
 **QUY ƯỚC : CÂU LÀM SAI/KHÔNG LÀM ĐƯỢC SẼ VIẾT ĐÁP ÁN Ở SAU**
 
@@ -195,4 +195,38 @@ set2.add(new ProductRecord("P01"));
 System.out.println(set2.size()); **//  Đ.án:1**
 
 
+
+## **B CODE JAVA**
+
+**B1**
+
++sử dụng 2 method 
+
+* method formatcode để chuyển code về đúng định dạng và kiểm tra đúng định dạng của code
+* method test để in ra kết quả code nếu sai thì throw exception
+
++sử dụng trim() để lại bỏ khoảng trống 
+
++sử dụng toUpperCase() để chuyển thành chuỗi in hoa
+
++sử dụng regex\[A-Z0-9]{3,20} để ép chuỗi chỉ gồm ký tự và chữ số trong độ dài từ 3-20
+
++CASE biên:
+
+* nếu mã null thì throw IllegalArgumentException với message : code không được để rỗng.
+* nếu mã rỗng thì throw IllegalArgumentException với message : code không đáp ứng định dạng
+* nếu mã dài quá độ dài quy định throw IllegalArgumentException với message : code không đáp ứng định dạng
+* nếu mã gồm các ký tự đặc biệt throw IllegalArgumentException với message : code không đáp ứng định dạng
+
+
+
+**B2**
+
+
+
+**B3**
+
+
+
+**B4**
 
