@@ -287,7 +287,7 @@ int hashcode:để quyết định phần tử nào vào ô nào nếu được 
 
 ## **C SQL với PostgreSQl**
 
-C1
+**C1**
 
 bảng customers
 
@@ -325,7 +325,51 @@ unit\_price kiểu dữ liệu bigint điều kiện check phải lớn hơn ho�
 
 UNIQUE(product\_id,order\_id) Một sản phẩm chỉ xuất hiện một dòng trong mỗi đơn.
 
-C3
 
 
+**C3**
+
+1.Danh sách sản phẩm còn hàng (stock > 0): code, name, price, stock, sắp xếp theo giá giảm dần.
+
+* sử dụng where để lấy stock >0 và order by price desc để lấy giá giảm dần
+
+2.Khách hàng dùng email Gmail (email kết thúc bằng @gmail.com): full\_name, email.
+
+* dùng where email like '%@gmail.com' để lấy nhưng email có đuôi là @gmail.com
+
+3.Các đơn hàng đã hoàn thành (DONE): mã đơn, tên khách hàng, status.
+
+* dùng join để kết nối dữ liệu từ bảng orders với customers để kiểm tra những đơn hàng đã hoàn thành 
+
+4.Tổng tiền của từng đơn hàng: order\_id, full\_name, total
+
+* dùng sum(quantity\*unit\_price) as totat
+* join bảng customer để lấy ra tên khách hàng ứng với mã đơn hàng và join bảng order\_item để lấy ra tổng giá trị cho từng mã đơn hàng ứng với từng customer
+
+5.Số đơn hàng của từng khách hàng
+
+* Dùng LEFT JOIN từ bảng customers sang bảng orders để giữ lại tất cả khách hàng, kể cả khách chưa có đơn (cột của orders khi đó là NULL). 
+* Dùng COUNT(o.id) để đếm số đơn, vì COUNT trên một cột chỉ đếm giá trị khác NULL nên khách chưa có đơn ra 0. Cuối cùng GROUP BY theo khách hàng.
+
+
+
+6\. Khách hàng có tổng chi tiêu ở các đơn DONE lớn hơn 1.000.000: full\_name, spent.
+
+* Dùng JOIN ba bảng customers, orders, order\_items để nối khách hàng với các dòng hàng của họ. Dùng WHERE status = 'DONE' để chỉ lấy đơn đã hoàn thành. 
+* Dùng SUM(quantity \* unit\_price) AS spent kết hợp GROUP BY để tính tổng chi tiêu của từng khách. Dùng HAVING SUM(...) > 1000000 để lọc sau khi đã cộng.
+
+
+
+7\. Sản phẩm chưa từng được bán, không tính các đơn đã hủy (CANCELLED): code, name.
+
+* Dùng NOT EXISTS với một truy vấn con: với mỗi sản phẩm, kiểm tra xem có dòng nào trong order\_items thuộc một đơn có status <> 'CANCELLED' hay không. 
+* Nếu không có thì sản phẩm đó chưa từng được bán và được lấy ra. Cách này cũng bắt được sản phẩm chỉ xuất hiện trong các đơn đã hủy, vì đơn hủy không tính là đã bán.
+
+
+
+8\. Top 3 sản phẩm bán được nhiều nhất theo tổng số lượng, không tính đơn đã hủy: code, name, sold. Nếu bằng nhau thì xếp theo code tăng dần.
+
+* Dùng JOIN ba bảng products, order\_items, orders rồi WHERE status <> 'CANCELLED' để bỏ đơn đã hủy. 
+* Dùng SUM(quantity) AS sold và GROUP BY theo sản phẩm để tính tổng số lượng bán. 
+* Dùng ORDER BY sold DESC để xếp số lượng giảm dần, nếu bằng nhau thì xếp theo code tăng dần. Cuối cùng LIMIT 3 để lấy 3 sản phẩm đầu.
 
