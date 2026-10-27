@@ -3,7 +3,7 @@ package scr;
 import java.util.*;
 
 public class B1 {
-    public static String formatcode(String s){
+    public static String normalizecode(String s){
         if(s==null){
             throw new IllegalArgumentException("code không được để rỗng");
         }
@@ -14,7 +14,7 @@ public class B1 {
     }
     public static void test(String s){
         try {
-            System.out.println("code: "+ s +" -> "+ formatcode(s));
+            System.out.println("code: "+ s +" -> "+ normalizecode(s));
         }
         catch (IllegalArgumentException e){
             System.out.println("code: "+s+" bị lỗi :" + e.getMessage());
