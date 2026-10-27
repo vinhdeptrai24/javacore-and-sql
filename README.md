@@ -239,7 +239,28 @@ dùng try catch để throw message exception
 * dùng vòng for lần lượt lấy từng từ trong mảng sau đi đã dùng split \\\\s+ để cắt từng từ qua từng khoảng trống
 * map.getorDefault để đếm từng từ trong map nếu từ chưa có để là 0 và cộng thêm 1 ghi lại vào map
 
+
+
 **B4**
 
++class Product:
 
+**\*constructer:**
+
+* code được chuẩn hóa và throw exception nếu dính điều kiện của normalizecode
+* kiểm tra tính hợp lệ của name,stock,price
+
+\*method increaseStock
+
+* quantity ≤ 0 ném IllegalArgumentException; không đủ hàng ném IllegalStateException, và tồn kho giữ nguyên.
+
+\*method decreaseStock
+
+* quantity ≤ 0 ném IllegalArgumentException.
+
+**\*tham khảo AI:**
+
+boolean equals:chuẩn hóa 2 product có code giống nhau thành 1 đối tượng
+
+int hashcode:để quyết định phần tử nào vào ô nào nếu được chuẩn hóa thành 1 đối tượng sẽ được cho vào 1 ô
 
