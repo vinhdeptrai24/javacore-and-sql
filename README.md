@@ -264,3 +264,28 @@ boolean equals:chuẩn hóa 2 product có code giống nhau thành 1 đối tư�
 
 int hashcode:để quyết định phần tử nào vào ô nào nếu được chuẩn hóa thành 1 đối tượng sẽ được cho vào 1 ô
 
+
+
+**B5**
+
+**method oderStatus nextsStatus:**
+
+\+nếu trạng thái null hoặc action null hoặc rỗng throw exception
+
++s bằng action.trim(),toUpperCase() để chuyển thành viết hoa và bỏ dấu cách đầu cuối
+
+\+sử dụng switch case cho 4 trạng thái 
+
+* nếu action là CONFIRM và trạng thái hiện tại là NEW thì sẽ chuyển trạng thái mới là CONFIRMED
+* nếu action là SHIP và trạng thái hiện tại là CONFIRMED sẽ chuyển trạng thái mới là SHIPPING
+* nếu action là COMPLETE và trạng thái hiện tại là SHIPPING thì sẽ chuyển sang trạng thái mới là DONE
+* nếu action là CANCEL và trạng thái hiện tại là NEW hoặc CONFIRM thì chuyển trạng thái mới là CANCELLEd
+* default nếu action không thuộc 1 trong 4 trạng thái trên thì throw exception
+* nếu trạng thái hiện tại không thuộc các điều kiện trong case sẽ throw exception
+
+**method test**
+
+## **C SQL với PostgreSQl**
+
+
+
