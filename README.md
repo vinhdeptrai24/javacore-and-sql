@@ -373,3 +373,24 @@ UNIQUE(product\_id,order\_id) Một sản phẩm chỉ xuất hiện một dòng
 * Dùng SUM(quantity) AS sold và GROUP BY theo sản phẩm để tính tổng số lượng bán. 
 * Dùng ORDER BY sold DESC để xếp số lượng giảm dần, nếu bằng nhau thì xếp theo code tăng dần. Cuối cùng LIMIT 3 để lấy 3 sản phẩm đầu.
 
+
+
+c4
+
+1.Tăng giá sản phẩm P03 thêm 10%. Trước câu UPDATE, viết câu SELECT kiểm tra dữ liệu sẽ bị ảnh hưởng
+
+dùng update table set where code=p03
+dự kiến 1 dòng thay đổi dòng p03 trong bảng products
+
+2\.
+
+chưa làm được
+
+3\.
+
+INSERT INTO order\_items (order\_id, product\_id, quantity, unit\_price) VALUES (5, 3, 0, 450000); // lỗi do constrain quantity > 0
+
+INSERT INTO order\_items (order\_id, product\_id, quantity, unit\_price) VALUES (5, 99, 1, 450000); // lỗi do constrain product\_id là khóa ngoại không có id 99
+
+INSERT INTO order\_items (order\_id, product\_id, quantity, unit\_price) VALUES (5, 1, 1, 850000); // lỗi do UNIQUE (product\_id,order\_id) đã tồn tại 5,1 
+
