@@ -200,12 +200,12 @@ System.out.println(set2.size()); **//  Đ.án:1**
 
 **B1**
 
-+sử dụng 2 method 
++sử dụng 2 method
 
-* method formatcode để chuyển code về đúng định dạng và kiểm tra đúng định dạng của code
+* method normalizecode để chuyển code về đúng định dạng và kiểm tra đúng định dạng của code
 * method test để in ra kết quả code nếu sai thì throw exception
 
-+sử dụng trim() để lại bỏ khoảng trống 
++sử dụng trim() để lại bỏ khoảng trống đầu cuối
 
 +sử dụng toUpperCase() để chuyển thành chuỗi in hoa
 
@@ -222,11 +222,24 @@ System.out.println(set2.size()); **//  Đ.án:1**
 
 **B2**
 
+\+sử dụng method calculate total:
 
+Ném IllegalArgumentException khi: một trong hai mảng là null, hai mảng khác độ dài, có số lượng ≤ 0 hoặc có đơn giá < 0.
+
++sử dụng method test:
+
+dùng try catch để throw message exception
 
 **B3**
 
+\+sử dụng method countword:
 
+* nếu text null hoặc để trống thì return khoảng trống không giá trị
+* khai báo biến clean bằng text viết thường bỏ khoảng trắng đầu cuối
+* dùng vòng for lần lượt lấy từng từ trong mảng sau đi đã dùng split \\\\s+ để cắt từng từ qua từng khoảng trống
+* map.getorDefault để đếm từng từ trong map nếu từ chưa có để là 0 và cộng thêm 1 ghi lại vào map
 
 **B4**
+
+
 
